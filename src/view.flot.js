@@ -48,7 +48,8 @@ my.Flot = Backbone.View.extend({
         group: null,
         // so that at least one series chooser box shows up
         series: [],
-        graphType: 'lines-and-points'
+        graphType: 'lines-and-points',
+        xLabelLength: 15
       },
       options.state
     );
@@ -206,7 +207,7 @@ my.Flot = Backbone.View.extend({
     // HACK: however we also get this case with Date fields. In that case we
     // could have a lot of values and so we limit to max 15 (we assume)
     if (this.xvaluesAreIndex) {
-      var numTicks = Math.min(this.model.records.length, 15);
+      var numTicks = Math.min(this.model.records.length, this.state.attributes.xLabelLength);
       var increment = this.model.records.length / numTicks;
       var ticks = [];
       for (var i=0; i<numTicks; i++) {
