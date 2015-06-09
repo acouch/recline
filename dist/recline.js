@@ -1086,7 +1086,8 @@ my.Flot = Backbone.View.extend({
         group: null,
         // so that at least one series chooser box shows up
         series: [],
-        graphType: 'lines-and-points'
+        graphType: 'lines-and-points',
+        xLabelLength: 15
       },
       options.state
     );
@@ -1244,7 +1245,7 @@ my.Flot = Backbone.View.extend({
     // HACK: however we also get this case with Date fields. In that case we
     // could have a lot of values and so we limit to max 15 (we assume)
     if (this.xvaluesAreIndex) {
-      var numTicks = Math.min(this.model.records.length, 15);
+      var numTicks = Math.min(this.model.records.length, this.state.attributes.xLabelLength);
       var increment = this.model.records.length / numTicks;
       var ticks = [];
       for (var i=0; i<numTicks; i++) {
@@ -1551,7 +1552,7 @@ my.FlotControls = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
 this.recline = this.recline || {};
 this.recline.View = this.recline.View || {};
 this.recline.View.Graph = this.recline.View.Flot;
@@ -1819,7 +1820,7 @@ my.GridRow = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
 /*jshint multistr:true */
 
 this.recline = this.recline || {};
@@ -2140,7 +2141,7 @@ my.Map = Backbone.View.extend({
 
     _.each(docs,function(doc){
       for (var key in self.features._layers){
-        if (self.features._layers[key].feature.properties.cid == doc.cid){
+        if (self.features._layers[key].feature.geometry.properties.cid == doc.cid){
           self.features.removeLayer(self.features._layers[key]);
         }
       }
@@ -2159,7 +2160,7 @@ my.Map = Backbone.View.extend({
     var dms = coord.split(/[^-?\.\d\w]+/);
     var deg = 0; var m = 0;
     var toDeg = [1, 60, 3600]; // conversion factors for Deg, min, sec
-    var i; 
+    var i;
     for (i = 0; i < dms.length; ++i) {
         if (isNaN(parseFloat(dms[i]))) {
           continue;
@@ -2283,8 +2284,8 @@ my.Map = Backbone.View.extend({
     var self = this;
     this.map = new L.Map(this.$map.get(0));
 
-    var mapUrl = "//otile{s}-s.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png";
-    var osmAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="//developer.mapquest.com/content/osm/mq_logo.png">';
+    var mapUrl = "http://otile{s}-s.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png";
+    var osmAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">';
     var bg = new L.TileLayer(mapUrl, {maxZoom: 18, attribution: osmAttribution ,subdomains: '1234'});
     this.map.addLayer(bg);
 
@@ -2491,8 +2492,7 @@ my.MapMenu = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
-
+})(jQuery, this.recline.View);
 /*jshint multistr:true */
 
 // Standard JS module setup
@@ -3057,7 +3057,7 @@ my.setHashQueryString = function(queryParams) {
   window.location.hash = my.getNewHashForQueryString(queryParams);
 };
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
 
 /*jshint multistr:true */
 
@@ -3517,7 +3517,7 @@ my.GridControl= Backbone.View.extend({
  }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
 
 /*
 * Context menu for the column picker, adapted from
@@ -3746,7 +3746,8 @@ my.Timeline = Backbone.View.extend({
         "startDate": start,
         "endDate": end,
         "headline": String(record.get('title') || ''),
-        "text": record.get('description') || record.summary()
+        "text": record.get('description') || record.summary(),
+        "tag": record.get('tags')
       };
       return tlEntry;
     } else {
@@ -3829,7 +3830,7 @@ my.Timeline = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
 /*jshint multistr:true */
 
 this.recline = this.recline || {};
