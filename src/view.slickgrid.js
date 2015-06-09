@@ -456,7 +456,7 @@ my.GridControl= Backbone.View.extend({
  }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
 
 /*
 * Context menu for the column picker, adapted from
