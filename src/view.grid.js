@@ -261,4 +261,4 @@ my.GridRow = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
