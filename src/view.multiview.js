@@ -562,5 +562,5 @@ my.setHashQueryString = function(queryParams) {
   window.location.hash = my.getNewHashForQueryString(queryParams);
 };
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
 
