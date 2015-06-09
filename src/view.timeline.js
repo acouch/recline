@@ -183,4 +183,4 @@ my.Timeline = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
