@@ -111,4 +111,4 @@ my.ValueFilter = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
