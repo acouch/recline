@@ -2,7 +2,7 @@ this.recline = this.recline || {};
 this.recline.Backend = this.recline.Backend || {};
 this.recline.Backend.Memory = this.recline.Backend.Memory || {};
 
-(function(my) {
+(function(my, recline) {
   "use strict";
   my.__type__ = 'memory';
 
@@ -242,4 +242,4 @@ this.recline.Backend.Memory = this.recline.Backend.Memory || {};
     };
   };
 
-}(this.recline.Backend.Memory));
+}(this.recline.Backend.Memory, this.recline));

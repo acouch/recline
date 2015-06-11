@@ -78,7 +78,7 @@ this.recline = this.recline || {};
 this.recline.Backend = this.recline.Backend || {};
 this.recline.Backend.Memory = this.recline.Backend.Memory || {};
 
-(function(my) {
+(function(my, recline) {
   "use strict";
   my.__type__ = 'memory';
 
@@ -318,7 +318,7 @@ this.recline.Backend.Memory = this.recline.Backend.Memory || {};
     };
   };
 
-}(this.recline.Backend.Memory));
+}(this.recline.Backend.Memory, this.recline));
 // This file adds in full array method support in browsers that don't support it
 // see: http://stackoverflow.com/questions/2790001/fixing-javascript-array-functions-in-internet-explorer-indexof-foreach-etc
 
