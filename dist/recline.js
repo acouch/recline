@@ -3917,8 +3917,7 @@ my.FacetViewer = Backbone.View.extend({
 });
 
 
-})(jQuery, recline.View);
-
+})(jQuery, this.recline.View);
 /*jshint multistr:true */
 
 // Field Info
