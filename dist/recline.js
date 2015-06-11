@@ -4295,8 +4295,7 @@ my.QueryEditor = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
-
+})(jQuery, this.recline.View);
 /*jshint multistr:true */
 
 this.recline = this.recline || {};
