@@ -2,7 +2,7 @@ this.recline = this.recline || {};
 this.recline.Backend = this.recline.Backend || {};
 this.recline.Backend.DataProxy = this.recline.Backend.DataProxy || {};
 
-(function(my) {
+(function(my, recline) {
   "use strict";
   my.__type__ = 'dataproxy';
   // URL for the dataproxy
@@ -73,4 +73,4 @@ this.recline.Backend.DataProxy = this.recline.Backend.DataProxy || {};
     return dfd.promise();
   };
 
-}(this.recline.Backend.DataProxy));
+}(this.recline.Backend.DataProxy, this.recline));
