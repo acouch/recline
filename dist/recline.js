@@ -4253,8 +4253,7 @@ my.Pager = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
-
+})(jQuery, this.recline.View);
 /*jshint multistr:true */
 
 this.recline = this.recline || {};
@@ -4411,4 +4410,4 @@ my.ValueFilter = Backbone.View.extend({
   }
 });
 
-})(jQuery, recline.View);
+})(jQuery, this.recline.View);
