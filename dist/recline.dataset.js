@@ -2,7 +2,7 @@
 this.recline = this.recline || {};
 this.recline.Model = this.recline.Model || {};
 
-(function(my) {
+(function(my, recline) {
   "use strict";
 
 // use either jQuery or Underscore Deferred depending on what is available
@@ -647,8 +647,7 @@ my.ObjectState = Backbone.Model.extend({
 //   return model.backend.sync(method, model, options);
 // };
 
-}(this.recline.Model));
-
+}(this.recline.Model, this.recline));
 this.recline = this.recline || {};
 this.recline.Backend = this.recline.Backend || {};
 this.recline.Backend.Memory = this.recline.Backend.Memory || {};
